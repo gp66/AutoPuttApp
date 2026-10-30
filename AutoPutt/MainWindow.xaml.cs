@@ -10,10 +10,12 @@ namespace AutoPutt
     {
         private static readonly AutoPuttLevelE[] SkillLevels =
         {
-            AutoPuttLevelE.TourProAutoPutts,
-            AutoPuttLevelE.ScratchGolferAutoPutts,
-            AutoPuttLevelE.TenHandicapAutoPutts,
-            AutoPuttLevelE.TwentyHandicapAutoPutts
+            AutoPuttLevelE.TourPro,
+            AutoPuttLevelE.ScratchGolfer,
+            AutoPuttLevelE.FiveHandicap,
+            AutoPuttLevelE.TenHandicap,
+            AutoPuttLevelE.FifteenHandicap,
+            AutoPuttLevelE.TwentyHandicap
         };
 
         public MainWindow()
@@ -59,18 +61,22 @@ namespace AutoPutt
 
             TourProResultTextBlock.Text = FormatPutts(puttResults[0]);
             ScratchResultTextBlock.Text = FormatPutts(puttResults[1]);
-            TenHandicapResultTextBlock.Text = FormatPutts(puttResults[2]);
-            TwentyHandicapResultTextBlock.Text = FormatPutts(puttResults[3]);
+            FiveHandicapResultTextBlock.Text = FormatPutts(puttResults[2]);
+            TenHandicapResultTextBlock.Text = FormatPutts(puttResults[3]);
+            FifteenHandicapResultTextBlock.Text = FormatPutts(puttResults[4]);
+            TwentyHandicapResultTextBlock.Text = FormatPutts(puttResults[5]);
         }
 
         private static string GetSkillLevelName(AutoPuttLevelE level)
         {
             switch (level)
             {
-                case AutoPuttLevelE.TourProAutoPutts: return "Tour Pro";
-                case AutoPuttLevelE.ScratchGolferAutoPutts: return "Scratch Golfer";
-                case AutoPuttLevelE.TenHandicapAutoPutts: return "Ten Handicap";
-                case AutoPuttLevelE.TwentyHandicapAutoPutts: return "Twenty Handicap";
+                case AutoPuttLevelE.TourPro: return "Tour Pro";
+                case AutoPuttLevelE.ScratchGolfer: return "Scratch Golfer";
+                case AutoPuttLevelE.FiveHandicap: return "Five Handicap";
+                case AutoPuttLevelE.TenHandicap: return "Ten Handicap";
+                case AutoPuttLevelE.FifteenHandicap: return "Fifteen Handicap";
+                case AutoPuttLevelE.TwentyHandicap: return "Twenty Handicap";
                 default: return "Unknown";
             }
         }

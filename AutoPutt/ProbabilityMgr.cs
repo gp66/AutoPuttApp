@@ -7,23 +7,31 @@ namespace AutoPutt
 {
     public static class ProbabilityMgr
     {
-        public static AutoPuttLevelE AutoPuttLevelEnum { get; set; } = AutoPuttLevelE.TenHandicapAutoPutts;
+        public static AutoPuttLevelE AutoPuttLevelEnum { get; set; } = AutoPuttLevelE.TenHandicap;
 
         public static int Get1PuttProbability(int distanceInFeet)
         {
-            if (AutoPuttLevelEnum == AutoPuttLevelE.TourProAutoPutts)
+            if (AutoPuttLevelEnum == AutoPuttLevelE.TourPro)
             {
                 return PGATour1PuttProbability(distanceInFeet);
             }
-            else if (AutoPuttLevelEnum == AutoPuttLevelE.ScratchGolferAutoPutts)
+            else if (AutoPuttLevelEnum == AutoPuttLevelE.ScratchGolfer)
             {
                 return ScratchGolfer1PuttProbability(distanceInFeet);
             }
-            else if (AutoPuttLevelEnum == AutoPuttLevelE.TenHandicapAutoPutts)
+            else if (AutoPuttLevelEnum == AutoPuttLevelE.FiveHandicap)
+            {
+                return FiveHandicap1PuttProbability(distanceInFeet);
+            }
+            else if (AutoPuttLevelEnum == AutoPuttLevelE.TenHandicap)
             {
                 return TenHandicap1PuttProbability(distanceInFeet);
             }
-            else if (AutoPuttLevelEnum == AutoPuttLevelE.TwentyHandicapAutoPutts)
+            else if (AutoPuttLevelEnum == AutoPuttLevelE.FifteenHandicap)
+            {
+                return FifteenHandicap1PuttProbability(distanceInFeet);
+            }
+            else if (AutoPuttLevelEnum == AutoPuttLevelE.TwentyHandicap)
             {
                 return TwentyHandicap1PuttProbability(distanceInFeet);
             }
@@ -33,19 +41,27 @@ namespace AutoPutt
 
         public static int Get3PuttProbability(int distanceInFeet)
         {
-            if (AutoPuttLevelEnum == AutoPuttLevelE.TourProAutoPutts)
+            if (AutoPuttLevelEnum == AutoPuttLevelE.TourPro)
             {
                 return PGATour3PuttProbability(distanceInFeet);
             }
-            else if (AutoPuttLevelEnum == AutoPuttLevelE.ScratchGolferAutoPutts)
+            else if (AutoPuttLevelEnum == AutoPuttLevelE.ScratchGolfer)
             {
                 return ScratchGolfer3PuttProbability(distanceInFeet);
             }
-            else if (AutoPuttLevelEnum == AutoPuttLevelE.TenHandicapAutoPutts)
+            else if (AutoPuttLevelEnum == AutoPuttLevelE.FiveHandicap)
+            {
+                return FiveHandicap3PuttProbability(distanceInFeet);
+            }
+            else if (AutoPuttLevelEnum == AutoPuttLevelE.TenHandicap)
             {
                 return TenHandicap3PuttProbability(distanceInFeet);
             }
-            else if (AutoPuttLevelEnum == AutoPuttLevelE.TwentyHandicapAutoPutts)
+            else if (AutoPuttLevelEnum == AutoPuttLevelE.FifteenHandicap)
+            {
+                return FifteenHandicap3PuttProbability(distanceInFeet);
+            }
+            else if (AutoPuttLevelEnum == AutoPuttLevelE.TwentyHandicap)
             {
                 return TwentyHandicap3PuttProbability(distanceInFeet);
             }
@@ -133,6 +149,46 @@ namespace AutoPutt
             return 30;
         }
 
+        private static int FiveHandicap1PuttProbability(int distanceInFeet)
+        {
+            if (distanceInFeet <= 2) return 98;
+            if (distanceInFeet <= 3) return 91;
+            if (distanceInFeet <= 4) return 76;
+            if (distanceInFeet <= 5) return 62;
+            if (distanceInFeet <= 6) return 51;
+            if (distanceInFeet <= 7) return 43;
+            if (distanceInFeet <= 8) return 38;
+            if (distanceInFeet <= 9) return 33;
+            if (distanceInFeet <= 10) return 30;
+            if (distanceInFeet <= 15) return 19;
+            if (distanceInFeet <= 20) return 12;
+            if (distanceInFeet <= 30) return 5;
+            if (distanceInFeet <= 40) return 2;
+            if (distanceInFeet <= 50) return 1;
+            if (distanceInFeet > 50) return 1;
+            return 1;
+        }
+
+        private static int FiveHandicap3PuttProbability(int distanceInFeet)
+        {
+            if (distanceInFeet <= 2) return 0;
+            if (distanceInFeet <= 3) return 0;
+            if (distanceInFeet <= 4) return 0;
+            if (distanceInFeet <= 5) return 0;
+            if (distanceInFeet <= 6) return 1;
+            if (distanceInFeet <= 7) return 1;
+            if (distanceInFeet <= 8) return 1;
+            if (distanceInFeet <= 9) return 1;
+            if (distanceInFeet <= 10) return 2;
+            if (distanceInFeet <= 15) return 3;
+            if (distanceInFeet <= 20) return 5;
+            if (distanceInFeet <= 30) return 13;
+            if (distanceInFeet <= 40) return 19;
+            if (distanceInFeet <= 50) return 28;
+            if (distanceInFeet > 50) return 35;
+            return 35;
+        }
+
         private static int TenHandicap1PuttProbability(int distanceInFeet)
         {
             if (distanceInFeet <= 2) return 97;
@@ -171,6 +227,46 @@ namespace AutoPutt
             if (distanceInFeet <= 50) return 32;
             if (distanceInFeet > 50) return 40;
             return 40;
+        }
+
+        private static int FifteenHandicap1PuttProbability(int distanceInFeet)
+        {
+            if (distanceInFeet <= 2) return 96;
+            if (distanceInFeet <= 3) return 86;
+            if (distanceInFeet <= 4) return 69;
+            if (distanceInFeet <= 5) return 54;
+            if (distanceInFeet <= 6) return 43;
+            if (distanceInFeet <= 7) return 36;
+            if (distanceInFeet <= 8) return 31;
+            if (distanceInFeet <= 9) return 26;
+            if (distanceInFeet <= 10) return 23;
+            if (distanceInFeet <= 15) return 14;
+            if (distanceInFeet <= 20) return 8;
+            if (distanceInFeet <= 30) return 3;
+            if (distanceInFeet <= 40) return 1;
+            if (distanceInFeet <= 50) return 1;
+            if (distanceInFeet > 50) return 1;
+            return 1;
+        }
+
+        private static int FifteenHandicap3PuttProbability(int distanceInFeet)
+        {
+            if (distanceInFeet <= 2) return 0;
+            if (distanceInFeet <= 3) return 0;
+            if (distanceInFeet <= 4) return 0;
+            if (distanceInFeet <= 5) return 0;
+            if (distanceInFeet <= 6) return 1;
+            if (distanceInFeet <= 7) return 1;
+            if (distanceInFeet <= 8) return 2;
+            if (distanceInFeet <= 9) return 2;
+            if (distanceInFeet <= 10) return 2;
+            if (distanceInFeet <= 15) return 4;
+            if (distanceInFeet <= 20) return 7;
+            if (distanceInFeet <= 30) return 18;
+            if (distanceInFeet <= 40) return 26;
+            if (distanceInFeet <= 50) return 37;
+            if (distanceInFeet > 50) return 46;
+            return 46;
         }
 
         private static int TwentyHandicap1PuttProbability(int distanceInFeet)

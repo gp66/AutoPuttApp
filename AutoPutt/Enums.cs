@@ -1,4 +1,4 @@
 ﻿namespace AutoPutt 
 {
-    public enum AutoPuttLevelE { TourProAutoPutts, ScratchGolferAutoPutts, TenHandicapAutoPutts, TwentyHandicapAutoPutts }
+    public enum AutoPuttLevelE { TourPro, ScratchGolfer, FiveHandicap, TenHandicap, FifteenHandicap, TwentyHandicap }
 }
